@@ -12,8 +12,8 @@ def filter(text):
     FinalText = []
     for sentance in text:
         LowerSentance = sentance.lower()
-        clean_sentence = "".join(letter for letter in LowerSentance if letter in ValidChar)
-        FinalText.append(clean_sentence)
+        CleanSentence = "".join(letter for letter in LowerSentance if letter in ValidChar)
+        FinalText.append(CleanSentence)
     return FinalText
     
 def CalcChance(vect, multi):
@@ -67,4 +67,4 @@ while not finished:
     else:
         finished = True
 
-print(sentance)
+print(f"genarated: {sentance}")
