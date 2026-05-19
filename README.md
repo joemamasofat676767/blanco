@@ -1,4 +1,4 @@
 # SnS-AI
 This is my AI — SnS(simple n stupid). Feel free to use this as a template for your own AI. Made by me with python and a little help by Gemini 
 
-versoin: SnS pre-alpha 1.8
+version: SnS pre-alpha 1.8
