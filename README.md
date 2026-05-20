@@ -9,3 +9,5 @@ main code: me
 core idea: me    
 comments: Gemini    
 AI knowledge: Deepseek    
+# development
+using embeddings instead of the curretn weight system
