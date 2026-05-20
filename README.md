@@ -5,10 +5,7 @@ version: SnS pre-alpha 1.8
 # Support
 deepseek AI and Gemini AI helped me a bit.
 
-main code: me
-
-core idea: me
-
-comments: Gemini 
-
+main code: me\n
+core idea: me\n
+comments: Gemini\n
 AI knowledge: Deepseek
