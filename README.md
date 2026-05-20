@@ -6,6 +6,9 @@ version: SnS pre-alpha 1.8
 deepseek AI and Gemini AI helped me a bit.
 
 main code: me
+
 core idea: me
+
 comments: Gemini 
+
 AI knowledge: Deepseek
