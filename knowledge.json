@@ -1,3 +1,22 @@
 {
-    "hello" : [0,0,0]
+  "obama": {
+    "love": 1,
+    "is": 1
+  },
+  "love": {
+    "fried": 1
+  },
+  "fried": {
+    "chicken": 1
+  },
+  "chicken": {},
+  "is": {
+    "sigma": 1,
+    "good": 1
+  },
+  "sigma": {},
+  "he": {
+    "is": 1
+  },
+  "good": {}
 }
