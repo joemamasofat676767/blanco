@@ -1,21 +1,12 @@
 from random import choices
 import json
 
-try:
-    with open("knowledge.json", "r") as file:
-        knowledge = json.load(file)
-except:
-    with open("knowledge.json", "w") as file:
-        json.dump({}, file)
-        knowledge = {}
-
 temp = 0.3
 ValidChar = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q",
              "r","s","t","u","v","w","x","y","z"," ","."}
-text = "obama love fried chicken. obama is sigma. he is good."
+text = "obama loves fried chicken. obama is kind. he is good."
 text = text.lower()
 text = text.split(".")
-vocab = set()
 
 def filter(text):
     FinalText = []
@@ -44,6 +35,20 @@ class words:
             print(self.next)
             return choices(next_choices, weights=CalcChance(self.next, temp))[0]
         return ""
+        
+try:
+    with open("knowledge.json", "r") as file:
+        data = json.load(file)
+        knowledge = list(data[0] + {})
+        vocab = data[1]
+        if knowledge:
+            for word in knowledge:
+                knowledge[1][word] = words(word)
+except:
+    with open("knowledge.json", "w") as file:
+        json.dump([{},[]], file, indent=2)
+        knowledge = [{},{}]
+        vocab = []
     
 FirstIter = True
 for sentance in filter(text):
@@ -53,28 +58,30 @@ for sentance in filter(text):
         
     for word in words_in_sentence:
         if word not in vocab:
-            knowledge[word] = words(word)
-            vocab.add(word)
+            knowledge[1][word] = words(word)
+            vocab.append(word)
         if FirstIter:
             LastWord = word
             FirstIter = False
             continue
-        if word not in knowledge[LastWord].next:
-            knowledge[LastWord].next[word] = 1
+        if word not in knowledge[1][LastWord].next:
+            knowledge[1][LastWord].next[word] = 1
         else:
-            knowledge[LastWord].next[word] += 1
+            knowledge[1][LastWord].next[word] += 1
         LastWord = word
     FirstIter = True
+
+for key in knowledge[1]:
+    knowledge[0][key] = knowledge[1][key].next
 
 predicted = "obama"
 sentance = predicted + " "
 finished = False
-
 while not finished:
-    if predicted in knowledge:
-        next_word = knowledge[predicted].predict()
-        if next_word != "":
-            predicted = next_word
+    if predicted in knowledge[1]:
+        NextWord = knowledge[1][predicted].predict()
+        if NextWord != "":
+            predicted = NextWord
             sentance += predicted + " "
         else:
             finished = True
@@ -83,8 +90,9 @@ while not finished:
 
 with open("knowledge.json", "w") as file:
     KnowledgeDump = {}
-    for key in knowledge.keys():
-        KnowledgeDump[key] = knowledge[key].next
-    json.dump(KnowledgeDump, file, indent=2)
+    for key in knowledge[0].keys():
+        KnowledgeDump[key] = knowledge[1][key].next
+    Dump = [KnowledgeDump, list(vocab)]
+    json.dump(Dump, file, indent=2)
     
 print(sentance)
