@@ -4,7 +4,7 @@ import json
 temp = 0.3
 ValidChar = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q",
              "r","s","t","u","v","w","x","y","z"," ","."}
-text = "obama loves fried chicken. obama is kind. he is good."
+text = ""
 text = text.lower()
 text = text.split(".")
 
@@ -25,24 +25,23 @@ class words:
     def __init__(self, word):
         self.word = word
         try:
-            self.next = knowledge[word]
+            self.next = knowledge[0][word]
         except:
             self.next = {}
         
     def predict(self):
         next_choices = list(self.next.keys())
         if next_choices:
-            print(self.next)
             return choices(next_choices, weights=CalcChance(self.next, temp))[0]
         return ""
         
 try:
     with open("knowledge.json", "r") as file:
         data = json.load(file)
-        knowledge = list(data[0] + {})
+        knowledge = [data[0], {}]
         vocab = data[1]
         if knowledge:
-            for word in knowledge:
+            for word in knowledge[0]:
                 knowledge[1][word] = words(word)
 except:
     with open("knowledge.json", "w") as file:
