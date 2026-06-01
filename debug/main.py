@@ -5,8 +5,8 @@ ROOT = Path(__file__).parent.parent
 
 sys.path.insert(0, f"{str(ROOT)}/main")
 
-import main as SnS
-print(SnS.generate("obama"))
+import main as blanc
+print(blanc.generate("obama"))
 
 PROTECTED_FILES = list(ROOT.glob("*/main.*"))
 command = input(" >> ")
