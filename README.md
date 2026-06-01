@@ -7,7 +7,7 @@ Deepseek AI helped me a bit.
 - ideas: me       
 - AI knowledge: Deepseek
 # Patch Notes
-3 major changes:
+### summary:
 - +40% speed
 - -30% file size
 - -35% ram usage
