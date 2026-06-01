@@ -1,6 +1,6 @@
 # Overall
-This is my AI — SnS(simple n stupid). Feel free to use this as a template for your own AI. Made by me with python
-version: SnS pre-alpha 2.2
+This is my AI — Blanco(blank cog). Feel free to use this as a template for your own AI. Made by me with python
+version: Blanc pre-alpha 2.2
 # Support
 Deepseek AI helped me a bit.
 - code: me    
