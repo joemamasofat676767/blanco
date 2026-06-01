@@ -12,12 +12,12 @@ Deepseek AI helped me a bit.
 - -30% file size
 - -35% ram usage
 - meaning identification
-### switched to embeddings 
+### switched to embeddings:
 - +40% speed
 - meaning identification
-### optimized core 
+### optimized core:
 - -35% ram usage
-### better and cleaner json
+### better and cleaner json:
 - -30% file size
 # In development
 embedding training
