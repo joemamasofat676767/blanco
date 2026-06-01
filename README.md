@@ -7,9 +7,17 @@ Deepseek AI helped me a bit.
 - ideas: me       
 - AI knowledge: Deepseek
 # Patch Notes
-- switched to embeddings \(+40% speed,
-- +meaning identification\)
-- optimized core \(-35% ram usage\)
-- better and cleaner json \(-30% file size\)
+3 major changes:
+- +40% speed
+- -30% file size
+- -35% ram usage
+- meaning identification
+### switched to embeddings 
+- +40% speed
+- meaning identification
+### optimized core 
+- -35% ram usage
+### better and cleaner json
+- -30% file size
 # In development
 embedding training
