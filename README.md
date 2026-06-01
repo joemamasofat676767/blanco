@@ -1,14 +1,15 @@
 # Overall
 This is my AI — SnS(simple n stupid). Feel free to use this as a template for your own AI. Made by me with python
-version: SnS pre-alpha 2.1
+version: SnS pre-alpha 2.2
 # Support
-Deepseek AI and Gemini AI helped me a bit.
+Deepseek AI helped me a bit.
 - code: me    
-- ideas: me    
-- guild: Gemini    
+- ideas: me       
 - AI knowledge: Deepseek
 # Patch Notes
-- added save to json
-- fixed major bugs
+- switched to embeddings \(+40% speed,
+- +meaning identification\)
+- optimized core \(-35% ram usage\)
+- better and cleaner json \(-30% file size\)
 # In development
-using embeddings instead of the current weight system
+embedding training
