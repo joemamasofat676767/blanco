@@ -38,6 +38,7 @@ version is the verion of that gen so maybe a newer version of g1 is better that 
 now, you might see t in blanc g1v0*t*.
 
 those are suffixes. there are/will be (b, s, p, e, n, t). here is a chart on their meanings:
+<hr>
 *suffix | full name | meaning*
 | b | balanced | a balanced model                                                              |
 | s | speed    | a model made for speed                                                        |
@@ -45,6 +46,6 @@ those are suffixes. there are/will be (b, s, p, e, n, t). here is a chart on the
 | e | extreme  | a model made for complex tasks                                                |
 | n | nano     | an extension of a suffix for small size (might affect initial speciality)     |
 | t | template | an extension of a suffix for not templates of a model (usually not a product) |
----
+<hr>
 
 possible cominations: b, s, p, e, bt, nb, ns, np, st, pt, et, nbt, nst, npt (no nano extreme because extreme is built for pure proformance)
