@@ -19,7 +19,7 @@ Deepseek AI helped me a bit.
 - -35% ram usage 🤏
 ### better and cleaner json:
 - -30% file size 🧰
-# In development 💻
+## In development 💻
 optimized training ⚡️
 # specs (for nerds) 📊
 *speed (reponse)*: ~1ms per response
