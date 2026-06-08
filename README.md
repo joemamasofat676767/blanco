@@ -41,10 +41,15 @@ those are suffixes. there are/will be (b, s, p, e, n, t). here is a chart on the
 <hr>
 *suffix | full name | meaning*
 | b | balanced | a balanced model                                                              |
+
 | s | speed    | a model made for speed                                                        |
+
 | p | pro      | a model made for proformance                                                  |
+
 | e | extreme  | a model made for complex tasks                                                |
+
 | n | nano     | an extension of a suffix for small size (might affect initial speciality)     |
+
 | t | template | an extension of a suffix for not templates of a model (usually not a product) |
 <hr>
 
