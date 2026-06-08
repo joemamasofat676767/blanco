@@ -28,10 +28,10 @@ optimized training ⚡️
 *ram usage*: ~15mb(due to python interpreter)
 # naming 🏷
 the name blanco is made from blank cog and the models names are named blanc so that its 1 syllable.
-after that the g and v in e.g. blanc *g*1*v*0t stand for gen and version.
+after that the g and v in e.g. blanc **g**1**v**0t stand for gen and version.
 gen is saying with core or an architectural change.
 version is the verion of that gen so maybe a newer version of g1 is better that an older one.
-now, you might see t in blanc g1v0*t*.
+now, you might see t in blanc g1v0**t**.
 ### those are suffixes. there are/will be (b, s, p, e, n, t). here is a chart on their meanings:
 <pre>
 ~suffix | full name | meaning~
