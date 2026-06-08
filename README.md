@@ -21,7 +21,7 @@ Deepseek AI helped me a bit.
 - -30% file size 🧰
 # In development 💻
 optimized training ⚡️
-# specs(for nerds)
+# specs (for nerds) 📊
 *speed (reponse)*: ~1ms per response
 *speed (epochs)*: ~250 per second(relative to the [training data](main/train.txt)
 *size*: 17kb
@@ -38,7 +38,7 @@ now, you might see t in blanc g1v0*t*.
 + ———————————————————————————————————————————————————————————————————————————————————————————— +
 | b ⚖️ | balanced | a balanced model                                                              |
 | s ⚡️ | speed    | a model made for speed                                                        |
-| p 📚 | pro      | a model made for proformance                                                  |
+| p 📚 | pro      | a model made for performance                                                  |
 | e 💎 | extreme  | a model made for complex tasks                                                |
 | n 🤏 | nano     | an extension of a suffix for small size (might affect initial speciality)     |
 | t 🏗 | template | an extension of a suffix for not templates of a model (usually not a product) |
