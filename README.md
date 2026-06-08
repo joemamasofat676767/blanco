@@ -19,14 +19,14 @@ Deepseek AI helped me a bit.
 - -35% ram usage 🤏
 ### better and cleaner json:
 - -30% file size 🧰
-# In development
+# In development 💻
 optimized training ⚡️
 # specs(for nerds)
 *speed (reponse)*: ~1ms per response
 *speed (epochs)*: ~250 per second(relative to the [training data](main/train.txt)
 *size*: 17kb
 *ram usage*: ~15mb(due to python interpreter)
-# naming
+# naming 🏷
 the name blanco is made from blank cog and the models names are named blanc so that its 1 syllable.
 after that the g and v in e.g. blanc *g*1*v*0t stand for gen and version.
 gen is saying with core or an architectural change.
@@ -36,12 +36,12 @@ now, you might see t in blanc g1v0*t*.
 <pre>
 ~suffix | full name | meaning~
 + ———————————————————————————————————————————————————————————————————————————————————————————— +
-| b | balanced | a balanced model                                                              |
-| s | speed    | a model made for speed                                                        |
-| p | pro      | a model made for proformance                                                  |
-| e | extreme  | a model made for complex tasks                                                |
-| n | nano     | an extension of a suffix for small size (might affect initial speciality)     |
-| t | template | an extension of a suffix for not templates of a model (usually not a product) |
+| b ⚖️ | balanced | a balanced model                                                              |
+| s ⚡️ | speed    | a model made for speed                                                        |
+| p 📚 | pro      | a model made for proformance                                                  |
+| e 💎 | extreme  | a model made for complex tasks                                                |
+| n 🤏 | nano     | an extension of a suffix for small size (might affect initial speciality)     |
+| t 🏗 | template | an extension of a suffix for not templates of a model (usually not a product) |
 + ————————————————————————————————————————————————————————————————————————————————————————————— +
 </pre>
 
