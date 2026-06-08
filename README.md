@@ -35,12 +35,14 @@ now, you might see t in blanc g1v0*t*.
 ### those are suffixes. there are/will be (b, s, p, e, n, t). here is a chart on their meanings:
 <pre>
 ~suffix | full name | meaning~
++ ———————————————————————————————————————————————————————————————————————————————————————————— +
 | b | balanced | a balanced model                                                              |
 | s | speed    | a model made for speed                                                        |
 | p | pro      | a model made for proformance                                                  |
 | e | extreme  | a model made for complex tasks                                                |
 | n | nano     | an extension of a suffix for small size (might affect initial speciality)     |
 | t | template | an extension of a suffix for not templates of a model (usually not a product) |
++ ————————————————————————————————————————————————————————————————————————————————————————————— +
 </pre>
 
 possible cominations: b, s, p, e, bt, nb, ns, np, st, pt, et, nbt, nst, npt (no nano extreme because extreme is built for pure proformance)
