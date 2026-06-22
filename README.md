@@ -7,6 +7,8 @@ Deepseek AI helped me a bit.
 - code: me    
 - ideas: me       
 - AI knowledge: Deepseek
+# dependencies 🤝
+- [joemamasofat676767/flooride](https://github.com/joemamasofat676767/flooride) (python module)
 # Patch Notes 📋
 ## summary:
 - +40% speed 💨
