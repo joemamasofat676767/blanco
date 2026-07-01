@@ -49,3 +49,5 @@ now, you might see t in blanc g1v0**t**.<br>
 </pre>
 
 possible cominations: b, s, p, e, bt, nb, ns, np, st, pt, et, nbt, nst, npt (no nano extreme because extreme is built for pure proformance)
+
+<sub>the mat 🫡</sup>
