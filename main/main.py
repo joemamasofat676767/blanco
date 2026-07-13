@@ -1,10 +1,11 @@
 from random import choices, choice, uniform
 from pathlib import Path
+import flooride as fd
 import time
 import json
 
 ROOT = Path(__file__).parent.parent
-KNOWLEDGE_PATH = ROOT/"main"/"knowledge.json"
+KNOWLEDGE_PATH = str(ROOT/"main"/"knowledge.flrd")
 TRAIN_PATH = ROOT/"main"/"train.txt"
 
 TEMP = 0.3
@@ -13,8 +14,8 @@ LR = 0.1
 VALID_CHAR = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q",
 				"r","s","t","u","v","w","x","y","z"," ","."}
 
-with open(TRAIN_PATH, "r") as train:
-	text = train.read()
+with open(TRAIN_PATH, "r") as file:
+	text = file.read()
 text = text.lower()
 text = text.split(".")
 
@@ -29,7 +30,7 @@ def filter(text):
 	return FinalText
 
 def GenRef(tokens):
-	return [sum([knowledge[token][1][i] for token in tokens if token in knowledge]) / len(tokens) for i in range(3)]
+	return [sum([knowledge[token].GetNext()[i] for token in tokens if token in knowledge]) / len(tokens) for i in range(3)]
 
 def CalcChance(vect):
 	return [abs(item ** CHANCE_MULTI) for item in vect]
@@ -43,13 +44,13 @@ def generate(StartText, ref=None):
 			if not ref:
 				NextWord = predict(predicted)
 			else:
-				differences = [(word, taylor(knowledge[word][1], ref)) for word in knowledge[predicted][0]]
+				differences = [(word, taylor(knowledge[word.decode()].GetEmbeddings(), ref)) for word in knowledge[predicted].GetNext()]
 				if differences:
 					SortedDifferences = sorted(differences, key=lambda word: word[1])
 				else:
 					finished = True
 					break
-				NextWord = choice(SortedDifferences[:len(SortedDifferences) // 3 + 1])[0]
+				NextWord = choice(SortedDifferences[:len(SortedDifferences) // 3 + 1])[0].decode()
 			if NextWord != "":
 				predicted = NextWord
 				sentance += predicted + " "
@@ -67,30 +68,31 @@ def taylor(embedding1, embedding2):
 	return 90 / (theta + 0.01)
 
 def predict(word1):
-	NextChoices = knowledge[word1][0]
+	NextChoices = knowledge[word1].GetNext()
 	if NextChoices:
-		difference = [taylor(knowledge[word1][1], knowledge[word2][1]) for word2 in knowledge[word1][0]]
+		difference = [taylor(knowledge[word1].GetEmbeddings(), knowledge[word2].GetEmbeddings()) for word2 in knowledge[word1].GetNext()]
 		return choices(NextChoices, weights=CalcChance(difference))[0]
 	return ""
-  
-try:
-	with open(KNOWLEDGE_PATH, "r") as file:
-		knowledge = json.load(file)
-except:
-	with open(KNOWLEDGE_PATH, "w") as file:
-		json.dump({}, file, indent=2)
-		knowledge = {}
+
+fd.mat.lay(KNOWLEDGE_PATH)
+mats = fd.mat.GetMats()
+
+knowledge = {}
+for mat in mats:
+	knowledge[mat.GetWord().decode()] = mat
+
+print(knowledge)
 
 if __name__ == "__main__":
-	"""while True:
+	while True:
 		epoch = input("epoches: ") 
 		if epoch.isdecimal():
 			epoch = int(epoch)
 			break
 		else:
 			print("enter num")
-	start = time.time()"""
-	"""for i in range(epoch):
+	start = time.perf_counter()
+	for i in range(epoch):
 		FirstIter = True
 		for sentance in filter(text):
 			WordsInSentence = sentance.split()
@@ -98,40 +100,34 @@ if __name__ == "__main__":
 				continue     
 			for word in WordsInSentence:
 				if word not in knowledge:
-					knowledge[word] = [[], [round(uniform(-2,2), 3) for _ in range(3)]]
+					knowledge[word] = fd.mat.MakeMat(word.encode("utf-8"), [], [round(uniform(-2,2), 3) for _ in range(3)])
 				if FirstIter:
 					LastWord = word
 					FirstIter = False
 					continue
-				if word not in knowledge[LastWord][0]:
-					knowledge[LastWord][0].append(word)
-				knowledge[LastWord][1] = [knowledge[LastWord][1][i] + round((knowledge[word][1][i] - knowledge[LastWord][1][i]) * LR, 3) for i in range(3)]
-				mag = sum([knowledge[LastWord][1][i] ** 2 for i in range(3)]) ** 0.5
-				knowledge[LastWord][1] = [round(cord / mag, 3) for cord in knowledge[LastWord][1]]
+				if word not in knowledge[LastWord].GetNext():
+					knowledge[LastWord].sow(word)
+				for i in range(fd.mat.inspect()[0]):
+					knowledge[LastWord].restyle("e", str(knowledge[LastWord].GetEmbeddings()[i] + round((knowledge[word].GetEmbeddings()[i] - knowledge[LastWord].GetEmbeddings()[i]) * LR, 3)), i)
+					mag = sum([knowledge[LastWord].GetEmbeddings()[i] ** 2 for i in range(3)]) ** 0.5
+					knowledge[LastWord].restyle("e", str(round(knowledge[LastWord].GetEmbeddings()[i] / mag, 3)), i)
 				LastWord = word
 			FirstIter = True
 		print(f"finished {i+1} epoch")
-	end = time.time()"""
+	end = time.perf_counter()
 	
-	"""TimeTook = (end - start) * 1000
-	print(f"| trained: {epoch} epochs | took: {TimeTook:.3f}ms |")
-	StartWord = input("enter a word: ")
-	start = time.time()
-	generated = generate(StartWord)
-	end = time.time()
 	TimeTook = (end - start) * 1000
-	print(f"| generated: '{generated}' | took: {TimeTook:.3f}ms |",end="")"""
+	print(f"| trained: {epoch} epochs | took: {TimeTook:.3f}ms |")
 	
 	running = True
 	while running:
 		prompt = [token for token in filter(input("you: ").split(".")) if token != ""]
 		if prompt:
-			start = time.time()
+			start = time.perf_counter()
 			response = generate("the", GenRef(prompt))
-			end = time.time()
+			end = time.perf_counter()
 			print(f"blanc(thought for: {(end-start)*1000:.3f}ms): {response}")
 		else:
 			print("enter something")
 	
-	with open(KNOWLEDGE_PATH, "w") as file:
-		json.dump(knowledge, file, indent=2)
+	fd.mat.lay(KNOWLEDGE_PATH)
