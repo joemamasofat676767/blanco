@@ -1,5 +1,5 @@
 # Overall 
-<img src="images/logo.png" alt="logo" style="width: 100px ; height: 100px;"></img>
+<img src="images/logo.png" alt="logo" style="width: 200px ; height: 200px;"></img> \
 This is my AI — Blanco(blank cog). Feel free to use this as a template for your own AI. Made by me with python
 version: Blanc g1v1t go to [naming](#naming-) to know what that means
 # Support 😣
